@@ -34,6 +34,9 @@ public class randomSort{
             }
         }
         swap(A,hi,j+1);
+        //if(counter<0) {
+            //System.out.println(counter);
+        //}
         return(j+1);
     }
 
@@ -43,5 +46,6 @@ public class randomSort{
         A[y]=holder;
     }
 
-    public static int getCount(){return counter;}
+    public static int getCount(){
+        return counter;}
 }
