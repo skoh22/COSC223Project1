@@ -38,7 +38,7 @@ public class RunSort{
         double[] results = new double[(int) Math.log10(maxLength)];
         //run the experiments on the different array lengths
         for (int i = 0; i < results.length; i++) {
-            int result = runExperiment(selection, sortType, curLength);
+            double result = runExperiment(selection, sortType, curLength);
             //add the result to the results array
             results[i] = result;
             curLength = curLength*10;
@@ -47,7 +47,7 @@ public class RunSort{
         System.out.println(Arrays.toString(results));
     }
 
-    public static int runExperiment(String selection, String sortType, int length){
+    public static double runExperiment(String selection, String sortType, int length){
         //create a new array generator
         Generate generator = new Generate();
         int[] expRuns = new int[100]; //run the experiment 100 times on the array of length "length"
@@ -78,11 +78,23 @@ public class RunSort{
             //System.out.println("Count is " + sort.getCount());
         }
         //calculate the average of these values in the experiment
-        int avg = 0;
+        int sum = 0;
         for(int i = 0; i<100; i++){
-            avg = avg + expRuns[i];
+            sum = sum + expRuns[i];
         }
+
+        //calculate variance
+        double avg = sum/100;
+
+        double numerator=0;
+        for(int i = 0; i<100; i++){
+            numerator = numerator + (expRuns[i]-avg)*(expRuns[i]-avg);
+        }
+
+        double variance = numerator/99;
+        System.out.println("Variance of array length " + length+ " is " + variance);
+
         //return the avg value over these 100 sorting runs
-        return(avg/100);
+        return(avg);
     }
 }
