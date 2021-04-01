@@ -59,7 +59,7 @@ public class RunSort{
     public static double runExperiment(String selection, String sortType, int length){
         //create a new array generator
         Generate generator = new Generate();
-        int[] expRuns = new int[100]; //run the experiment 100 times on the array of length "length"
+        long[] expRuns = new long[100]; //run the experiment 100 times on the array of length "length"
         for(int i = 0; i<100; i++) {
             //create new array with user's desired input type
             int[] A;
@@ -88,24 +88,13 @@ public class RunSort{
         }
 
         //calculate the average of these values in the experiment
-        int sum = 0;
-        for(int run : expRuns){
-            sum = sum + run;
-            System.out.println("adding " + run + " to get " + sum);
-            //if(sum<0){
-                //System.out.println(run);
-                //System.out.println(sum);
-            //}
-        }
-        //for(int i = 0; i<100; i++){
-            //sum = sum + expRuns[i];
+        long sum = 0;
 
-            //if(sum<0){
-               // System.out.println(expRuns[i]);
-                //System.out.println(sum);
-            //}
-            //System.out.println(i + ":" + sum);
-        //}
+        for(long run : expRuns){
+            sum = sum + run;
+            //System.out.println("adding " + run + " to get " + sum);
+        }
+
         double avg = sum/100;
 
         //calculate variance
@@ -115,7 +104,7 @@ public class RunSort{
         }
 
         double variance = numerator/99;
-        //System.out.println("Variance of array length " + length+ " is " + variance);
+        System.out.println("Variance of array length " + length+ " is " + variance);
 
         //return the avg value over these 100 sorting runs
         return(avg);

@@ -1,7 +1,7 @@
 //sort with random selection of partition
 public class randomSort{
 
-    static int counter;
+    static long counter;
 
     public randomSort(int[] A, int lo, int hi){
         counter=0; //keep track of how many comparisons we do
@@ -46,6 +46,6 @@ public class randomSort{
         A[y]=holder;
     }
 
-    public static int getCount(){
+    public static long getCount(){
         return counter;}
 }
