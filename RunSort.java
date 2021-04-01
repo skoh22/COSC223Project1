@@ -71,7 +71,7 @@ public class RunSort{
                 expRuns[i] = sort.getCount();
             }
             else{
-                deterministicSort sort = new deterministicSort(A,lo,hi);
+                deterministicSort sort = new deterministicSort(A, lo, hi);
                 expRuns[i] = sort.getCount();
             }
             //System.out.println(Arrays.toString(A));
