@@ -17,6 +17,17 @@ public class RunSort{
             selection = kb.nextLine();
         }
 
+        System.out.println("Please select (type number) an input type: "); //Ask user to select Quicksort type
+        System.out.println("(1) Random Quicksort");
+        System.out.println("(2) Deterministic Quicksort");
+        String sortType = kb.nextLine();
+
+        //check to make sure input is valid
+        while (!sortType.equals("1") && !sortType.equals("2")) {
+            System.out.println("Invalid input. Please try again:");
+            sortType = kb.nextLine();
+        }
+
         //Ask user to input a max array length for the experiments
         System.out.println("Please input a max array length (suggested max input 10^6).");
         System.out.println("Note: max input will be cut down to nearest order of 10:");
@@ -27,7 +38,7 @@ public class RunSort{
         double[] results = new double[(int) Math.log10(maxLength)];
         //run the experiments on the different array lengths
         for (int i = 0; i < results.length; i++) {
-            int result = runExperiment(selection, curLength);
+            int result = runExperiment(selection, sortType, curLength);
             //add the result to the results array
             results[i] = result;
             curLength = curLength*10;
@@ -36,7 +47,7 @@ public class RunSort{
         System.out.println(Arrays.toString(results));
     }
 
-    public static int runExperiment(String selection, int length){
+    public static int runExperiment(String selection, String sortType, int length){
         //create a new array generator
         Generate generator = new Generate();
         int[] expRuns = new int[100]; //run the experiment 100 times on the array of length "length"
@@ -54,10 +65,17 @@ public class RunSort{
             }
             int lo = 0;
             int hi = A.length-1;
-            randomSort sort = new randomSort(A, lo, hi);
+
+            if (sortType.equals("1")){
+                randomSort sort = new randomSort(A, lo, hi);
+                expRuns[i] = sort.getCount();
+            }
+            else{
+                deterministicSort sort = new deterministicSort(A, lo, hi);
+                expRuns[i] = sort.getCount();
+            }
             //System.out.println(Arrays.toString(A));
             //System.out.println("Count is " + sort.getCount());
-            expRuns[i] = sort.getCount();
         }
         //calculate the average of these values in the experiment
         int avg = 0;
