@@ -1,7 +1,7 @@
 //sort with hi as selection for partition
 public class deterministicSort{
 
-    static int counter;
+    static long counter;
 
     public deterministicSort(int[] A, int lo, int hi){
         counter=0; //keep track of how many comparisons we do
@@ -43,5 +43,5 @@ public class deterministicSort{
         A[y]=holder;
     }
 
-    public static int getCount(){return counter;}
+    public static long getCount(){return counter;}
 }
