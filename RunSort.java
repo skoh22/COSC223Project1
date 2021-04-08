@@ -28,10 +28,11 @@ public class RunSort{
             System.out.println("Please select (type number) an input type: "); //Ask user to select Quicksort type
             System.out.println("(1) Random Quicksort");
             System.out.println("(2) Deterministic Quicksort");
+            System.out.println("(3) PickThree Quicksort");
             String sortType = kb.nextLine();
 
             //check to make sure input is valid
-            while (!sortType.equals("1") && !sortType.equals("2")) {
+            while (!sortType.equals("1") && !sortType.equals("2") && !sortType.equals("3")) {
                 System.out.println("Invalid input. Please try again:");
                 sortType = kb.nextLine();
             }
@@ -80,11 +81,15 @@ public class RunSort{
                     System.out.println("alert");
                 }
                 //System.out.println("Count is " + sort.getCount());
-            } else {
+            }
+            else if(sortType.equals("2"))  {
                 deterministicSort sort = new deterministicSort(A, lo, hi);
                 expRuns[i] = sort.getCount();
             }
-            //System.out.println(Arrays.toString(A));
+            else{
+                pickThreeSort sort = new pickThreeSort(A, lo, hi);
+                expRuns[i] = sort.getCount();
+            }
         }
 
         //calculate the average of these values in the experiment
