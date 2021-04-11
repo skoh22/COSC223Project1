@@ -1,3 +1,5 @@
 # COSC223Project1
 
-This project is for COSC 223 at Amherst College.
+This project is for COSC 223 at Amherst College by Sophie Koh and Anna Dietrich.
+
+RunSort.java is the file that will allow you to test out the different types of quicksort algorithms. When you type java RunSort, a series of questions will appear in the console. The first question, "Is this a test?" was just for us to test out our code. You should type "n" if you want to be able to control the input. The next question will ask you to select the type of input that you would like to test. Type the number corresponding to the input type you want that shows up in the list. Then, the program will ask you to select a sorting type. Type in the number of your desired sorting type. Finally, it will ask for a maximum input size. Because the program will run tests for arrays of size, 10,100, ..., 10^k, this is asking for the max value that you want the program to run to. Note that you need to fully type the number out (e.g. 1000000 instead of 10^6). The program will then run. For each array size, it will print out the variance. Then, the final thing it prints out is an array with some numbers in it. Each of these numbers corresponds to the average number of comparisons over 100 runs for an array of size 10^{i+1}, where i is the index of the array.
