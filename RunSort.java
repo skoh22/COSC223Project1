@@ -38,7 +38,7 @@ public class RunSort{
             }
 
             //Ask user to input a max array length for the experiments
-            System.out.println("Please input a max array length (suggested max input 10^6).");
+            System.out.println("Please input a max array length (suggested max input 1000000).");
             System.out.println("Note: max input will be cut down to nearest order of 10:");
             int maxLength = kb.nextInt();
             int curLength = 10;
