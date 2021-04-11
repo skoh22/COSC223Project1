@@ -25,7 +25,7 @@ public class RunSort{
                 selection = kb.nextLine();
             }
 
-            System.out.println("Please select (type number) an input type: "); //Ask user to select Quicksort type
+            System.out.println("Please select (type number) a variation of Quicksort: "); //Ask user to select Quicksort type
             System.out.println("(1) Random Quicksort");
             System.out.println("(2) Deterministic Quicksort");
             System.out.println("(3) PickThree Quicksort");
